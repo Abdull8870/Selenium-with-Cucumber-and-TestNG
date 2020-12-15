@@ -1,4 +1,4 @@
-# Selenium-TestNG-Framework
+# Selenium-with-Cucumber-and-TestNG
 
 Click on the code dropdown and download the project as a zip file.
 
