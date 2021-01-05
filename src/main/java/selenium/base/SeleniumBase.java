@@ -808,6 +808,34 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 		}
 		
 	}
+
+	@Override
+	public void ScrolDown(int x, int y) {
+		// TODO Auto-generated method stub
+		try {
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+			String script="window.scrollBy("+x+","+y+")";
+			js.executeScript(script, "");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			reportStep("Some internal error occured", "fail");
+		}
+	}
+
+	@Override
+	public void scrollTillTheElement(WebElement ele) {
+		// TODO Auto-generated method stub
+		try {
+			JavascriptExecutor js=(JavascriptExecutor)driver;
+			js.executeScript("arguments[0].scrollIntoView(true)", ele);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			reportStep("Element not found", "fail");
+		}
+		
+	}
 	
 	
 	

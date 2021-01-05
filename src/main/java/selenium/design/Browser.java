@@ -186,7 +186,24 @@ public interface Browser {
 	 */
 	
 	public void zoom(int zoomPercenatge);
+
+	 
 	
+	/**
+	 * This method will scroll down to the given vertical and horizontal location
+	 * @author Abdul Rahuman
+	 */
+	
+	
+	public void ScrolDown(int x,int y);
+	
+
+	/**
+	 * This method will scroll down till it finds the element
+	 * @author Abdul Rahuman
+	 */
+	
+	public void scrollTillTheElement(WebElement ele);
 	
 	
 	

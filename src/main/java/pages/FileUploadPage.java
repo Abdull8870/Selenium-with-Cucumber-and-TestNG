@@ -28,6 +28,7 @@ public class FileUploadPage extends ProjectSpecificMethods{
 		click(eleChooseFileBtn);
 		autoITExecutor(fileName);
 		checkExistence(eleConvertBtn);
+		click(eleConvertBtn);
 		Thread.sleep(5000);
 		return this;
 	}

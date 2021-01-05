@@ -30,8 +30,11 @@ public class HomePage extends ProjectSpecificMethods{
 	@FindBy(how=How.LINK_TEXT,using="Leads")
 	private WebElement eleLeads;
 	
+	@FindBy(how=How.XPATH,using="//img[@alt=\"twitter\"]")
+	private WebElement eleTwitter;
+	
 	@Then("Click on create lead button")
-	public HomePage clickCreateLead() {
+	public HomePage clickCreateLead() throws InterruptedException {
 		click(eleCreateLead);
 		return this;
 	}
@@ -58,6 +61,11 @@ public class HomePage extends ProjectSpecificMethods{
 		click(eleAccounTab);
 		return this;
 	}
+	
+	
+	
+	
+	
 }
 
 
