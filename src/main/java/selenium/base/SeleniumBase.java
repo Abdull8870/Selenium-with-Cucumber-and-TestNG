@@ -49,7 +49,6 @@ import org.testng.asserts.SoftAssert;
 
 import selenium.design.Browser;
 import selenium.design.Element;
-
 import java.awt.AWTException;
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -358,12 +357,27 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 				System.setProperty("webdriver.chrome.driver",
 						"./drivers/chromedriver.exe");
 				String path=System.getProperty("user.dir")+"\\downloads";
+				
+				/**
+				 * DesiredCapabilities is used to make webdriver to accept
+				   insecure certifications and SSL certifications
+				 
+				  *setExperimentalOption is used to inform webdriver the location of downloading file path
+				   and always download pdf instead of opening it in the browser
+				 
+				 */
+				
+				DesiredCapabilities dc=DesiredCapabilities.chrome();
+// 				dc.acceptInsecureCerts();
+				dc.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+				dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 				ChromeOptions options = new ChromeOptions();
 				HashMap<String,Object> chromePrefs = new HashMap<>();
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory",path);	
 				chromePrefs.put("plugins.always_open_pdf_externally", true);
 				options.setExperimentalOption("prefs", chromePrefs);
+				options.merge(dc);
                 driver = new ChromeDriver(options);
                 driver.get(url);
 			} else if(browser.equalsIgnoreCase("firefox")) {
