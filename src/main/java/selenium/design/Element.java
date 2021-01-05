@@ -244,7 +244,16 @@ public interface Element {
  	 */
 	
 	
-	public void doubleClick(WebElement ele);
+	  public void doubleClick(WebElement ele);
+	
+	  
+	   /**
+		 * This method will execute the exe file passed as an arugment during the runtime 
+		 * @param  exeFilepath  - executable file location as a string
+		 * @author Abdul Rahuman
+	 	 */
+	  
+	  public void autoITExecutor(String exeFilepath);
 	
 	
 }

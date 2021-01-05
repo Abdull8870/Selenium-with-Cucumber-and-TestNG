@@ -180,6 +180,14 @@ public interface Browser {
 	public void quit();
 	
 	
+	/**
+	 * This method will zoom the content of the application based on the user input
+	 * @author Abdul Rahuman
+	 */
+	
+	public void zoom(int zoomPercenatge);
+	
+	
 	
 	
 

@@ -50,6 +50,10 @@ import org.testng.asserts.SoftAssert;
 import selenium.design.Browser;
 import selenium.design.Element;
 
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
 import java.io.*;
 import org.openqa.selenium.*;
 
@@ -60,6 +64,7 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 	public static RemoteWebDriver driver;
 	public WebDriverWait wait;
 	public String DOWNLOAD_FOLDER_PATH="./downloads";
+	public String AutoITExecutor_FOLDER_PATH="./AutoITScriptExecutor";
 	public String propertyFile="./properties/data.properties";
 	public SoftAssert softAssert = new SoftAssert();
 
@@ -71,6 +76,7 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 	{
 		
 		try {
+			
 			wait=new WebDriverWait(driver,20);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));
 			ele.clear();
@@ -160,6 +166,7 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 	@Override
 	public void clearAndType(WebElement ele, String data) {
 		try {
+			
 			ele.clear();
 			ele.sendKeys(data);			
 			addSnapToWord("The input "+data+" has been entered sucessfully", takeScreenShot());
@@ -758,8 +765,10 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 
 	@Override
 	public void doubleClick(WebElement ele) {
+		
 		// TODO Auto-generated method stub
 		try {
+			
 			Actions action=new Actions(driver);
 			action.doubleClick(ele).build().perform();
 		} catch (Exception e) {
@@ -768,6 +777,40 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 			reportStep("Element Not found", "fail");
 		}
 	}
+
+	@Override
+	public void zoom(int zoomPercenatge) {
+		// TODO Auto-generated method stub
+		try {
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			String script="document.body.style.zoom ='"+zoomPercenatge+"%'";
+			System.out.println(script);
+			executor.executeScript(script);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			reportStep("Some internal error occured", "fail");
+		}
+		
+	}
+
+	@Override
+	public void autoITExecutor(String exeFilepath) {
+		// TODO Auto-generated method stub
+		
+		try {
+			Runtime.getRuntime().exec(AutoITExecutor_FOLDER_PATH+"/"+exeFilepath+".exe");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			reportStep("Some internal error occured", "fail");
+		}
+		
+	}
+	
+	
+	
 	
 	
 	
