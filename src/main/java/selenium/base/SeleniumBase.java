@@ -728,24 +728,45 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 	public void clickAndHold(WebElement ele) {
 		// TODO Auto-generated method stub
 		
-		Actions action=new Actions(driver);
-		action.clickAndHold(ele).build().perform();
+		try {
+			Actions action=new Actions(driver);
+			action.clickAndHold(ele).build().perform();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			reportStep("Element Not found", "fail");
+
+		}
+
 		
 	}
 
 	@Override
 	public void dragAndDrop(WebElement eleSrc, WebElement eleDest) {
 		// TODO Auto-generated method stub
-		Actions action=new Actions(driver);
-		action.dragAndDrop(eleSrc, eleDest).build().perform();
+		try {
+			Actions action=new Actions(driver);
+			action.dragAndDrop(eleSrc, eleDest).build().perform();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			reportStep("Element Not found", "fail");
+		}
 		
 	}
 
 	@Override
 	public void doubleClick(WebElement ele) {
 		// TODO Auto-generated method stub
-		Actions action=new Actions(driver);
-		action.doubleClick(ele).build().perform();
+		try {
+			Actions action=new Actions(driver);
+			action.doubleClick(ele).build().perform();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			reportStep("Element Not found", "fail");
+		}
 	}
 	
 	
