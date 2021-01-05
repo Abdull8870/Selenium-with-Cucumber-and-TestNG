@@ -219,6 +219,34 @@ public interface Element {
 	
 	public void addSnapToWord(String stepDef, String imageFile);
 	
+	/**
+	 * This method will click and hold an element in the screen
+	 * @param  ele  - The element which needs to be click and hold
+	 * @author Abdul Rahuman
+ 	 */
+	
+	public void clickAndHold(WebElement ele);
+	
+	/**
+	 * This method will click and hold an element in the screen
+	 * @param  eleSrc  - The source element which needs to draged
+	 * @param  eleDest  - The destination element to which source element has to be dragged
+	 * @author Abdul Rahuman
+ 	 */
+	
+	
+	public void dragAndDrop(WebElement eleSrc,WebElement eleDest);
+	
+	/**
+	 * This method will click and hold an element in the screen
+	 * @param  ele  - The element which needs to be double clicked 
+	 * @author Abdul Rahuman
+ 	 */
+	
+	
+	public void doubleClick(WebElement ele);
+	
+	
 }
 
 
